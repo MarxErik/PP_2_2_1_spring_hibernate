@@ -1,7 +1,5 @@
 package hiber.model;
 
-import com.sun.xml.bind.v2.model.core.ID;
-
 import javax.persistence.*;
 
 @Entity
