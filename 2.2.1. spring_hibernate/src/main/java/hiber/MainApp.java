@@ -6,6 +6,8 @@ import hiber.model.User;
 import hiber.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.List;
+
 public class MainApp {
    public static void main(String[] args) {
       AnnotationConfigApplicationContext context =
@@ -31,13 +33,11 @@ public class MainApp {
       userService.add(user3);
       userService.add(user4);
 
-      userService.listUsers().forEach(user -> {
-         System.out.printf("Id = %d%nFirst Name = %s%nLast Name = %s%nEmail = %s%nModelCar = %s%nSeriesCar = %s%n%n",
-                 user.getId(), user.getFirstName(), user.getLastName(), user.getEmail(),
-                 user.getCar().getModel(), user.getCar().getSeries());
-      });
+      List<User> users = userService.listUsers();
+      for (User user : users) {
+         System.out.println(user);
+      }
+
       context.close();
    }
 }
-
-
